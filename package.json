@@ -1,0 +1,23 @@
+{
+  "name": "svg-file-loader",
+  "version": "1.0.0",
+  "description": "基于node.js的svg文件解析脚本",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "run": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/czh740132583/svg-file-loader.git"
+  },
+  "keywords": [
+    "svg"
+  ],
+  "author": "baiwusanyu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/czh740132583/svg-file-loader/issues"
+  },
+  "homepage": "https://github.com/czh740132583/svg-file-loader#readme"
+}
