@@ -5,8 +5,8 @@
 * @update (czh 2021/12/8)
 */
 // 拼接脚本内容
-import {camelize} from "./parser";
-import {writeFile} from 'fs'
+import {camelize} from "./parser.js";
+import {writeFile,exists,mkdir} from 'fs'
 /**
  * 生成脚本文件
  * @param outputPath 输出路径
@@ -21,10 +21,17 @@ export function createFile(outputPath,fileName,svgData){
     /**
      * 生成脚本文件
      */
-    writeFile(outputPath+fileName,scriptContent,function (err){
-        if(err) {
-            return console.log(err);
+    exists(outputPath,  function(exists) {
+        if(!exists){
+             mkdir(outputPath,()=>{
+                 writeFile(outputPath+fileName,scriptContent,function (err){
+                     if(err) {
+                         return console.log(err);
+                     }
+                     console.log("The file was saved!");
+                 })
+             })
         }
-        console.log("The file was saved!");
-    })
+    });
+
 }
