@@ -6,7 +6,6 @@
   "type": "module",
   "scripts": {
     "run": "node demo/demo.js",
-    "build": "rollup -c"
   },
   "repository": {
     "type": "git",
@@ -21,8 +20,4 @@
     "url": "https://github.com/czh740132583/svg-file-loader/issues"
   },
   "homepage": "https://github.com/czh740132583/svg-file-loader#readme",
-  "devDependencies": {
-    "@babel/core": "^7.16.0",
-    "rollup": "^2.60.2"
-  }
 }
