@@ -4,8 +4,7 @@
 * @author czh
 * @update (czh 2021/12/9)
 */
-// import {findSvgFile,createFile} from "../src/index.js";
-import {findSvgFile,createFile} from "../svg-file-loader.js";
+import {findSvgFile,createFile} from "../src/index.js";
 import {config} from "./config.js";
 // 读取svg文件内容
 const svgData = findSvgFile(config.input)

@@ -5,7 +5,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "run": "node demo/demo.js",
+    "run": "node demo/demo.js"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,5 @@
   "bugs": {
     "url": "https://github.com/czh740132583/svg-file-loader/issues"
   },
-  "homepage": "https://github.com/czh740132583/svg-file-loader#readme",
+  "homepage": "https://github.com/czh740132583/svg-file-loader#readme"
 }
