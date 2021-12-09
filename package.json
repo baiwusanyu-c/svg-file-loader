@@ -1,6 +1,6 @@
 {
   "name": "svg-file-loader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "基于node.js的svg文件解析脚本",
   "main": "index.js",
   "type": "module",
