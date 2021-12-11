@@ -15,11 +15,14 @@ cnpm i svg-file-loader
 传递即可。
 ### 2.编写参数配置
 在demo文件夹中的config.js,在这个文件中填写对应参数
-````
-input -- 静态svg文件存放路径
-output -- 脚本文件生成路径
-name -- 生成脚本文件名
-````
+
+|  名称   |  取值   | 说明  |
+|  ---- |  ----  | ----  |
+|  input |  ----  | 静态svg文件存放路径  |
+|  output |  ----  | 脚本文件生成路径  |
+|  name |  ----  | 生成脚本文件名  |
+|  type |  'ts' 或 'js'  | 指定生成的文件是js还是ts  |
+|  format |  'export' 或 'default' | 指定生成的文件内容导出时 export default 还是 export  |
 ### 3.执行命令生成脚本
 你可以直接运行demo.js或使用命令npm run来生成最终的脚本文件。  
 值得注意的是，直接运行demo.js时，config.js中的input和  
@@ -30,24 +33,41 @@ output参数与使用命令使用命令npm run的路径是不一样的，这里�
  input:'../assets/icon/',
  output:'../dist/',
  name:'svgDict.js',
+ type:'ts',
+ format:'default'
 ````
 #### npm run 对应 config
 ````
  input:'./assets/icon/',
  output:'./dist/',
  name:'svgDict.js',
+ type:'ts',
+ format:'default'
 ````
 最终我们会得到脚本文件（以demo为例）svgDict.js
-他的将根据svg文件名导出变量如下
+他的将根据svg文件名导出变量如下:
 ````
+// 当format取值为'export'
 export const content1 = <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN".............. '
 export const content2 = <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN".............. '
+````
+````
+// 当format取值为'default'
+export default {
+    content1 : <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN".............. '
+    content2 : <?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN".............. '
+}
+// 当format取值为'default' type为'ts'时还会导出一个类型
+export interface ISVGDict {
+    [key: string]: string
+}
+
 ````
 ## Api
 |  方法名称   |  说明   | 参数  | 返回 |
 |  ---- |  ----  | ----  | ----  | 
 |  findSvgFile |  根据传入参数，搜索指定文件夹内svg文件  | dir:String svg文件路径| Array<{name:String,svg:String}><br>fileName：驼峰化的svg文件名<br>svg:对应svg文件的innerHTML| 
-|  createFile |  根据传入参数，生成指定目录svg脚本  | outputPath:String 指定的输出路径<br>fileName:String 指定的输出文件名 <br>svgData:Array<{name:String,svg:String} findSvgFile的返回值| void|
+|  createFile |  根据传入参数，生成指定目录svg脚本  | outputPath:String 指定的输出路径<br>fileName:String 指定的输出文件名 <br>svgData:Array<{name:String,svg:String} findSvgFile的返回值<br>type:String='ts' 文件类型 <br>format:String='default' 导出格式| void|
 
 ## 其他
 #### 1.由于脚本会根据svg文件名生成变量,所以文件名不能是JavaScript的关键字，文件名应该使用XXX.svg 或 XXX-YYY.svg格式

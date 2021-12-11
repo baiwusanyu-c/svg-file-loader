@@ -7,5 +7,7 @@
 export const config = {
     input:'./assets/icon/',
     output:'./dist/',
-    name:'svgDict.js',
+    name:'svg-dict',
+    type:'js',
+    format:'default'
 }
