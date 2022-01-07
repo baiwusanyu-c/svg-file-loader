@@ -45,7 +45,7 @@ export default {\n`
     exists(outputPath,  function(exists) {
         if(!exists){
              mkdir(outputPath,()=>{
-                 writeFile(outputPath+fileName+type,scriptContent,function (err){
+                 writeFile(outputPath+fileName+'.'+type,scriptContent,function (err){
                      if(err) {
                          return console.log(err);
                      }

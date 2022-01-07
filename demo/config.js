@@ -8,6 +8,6 @@ export const config = {
     input:'./assets/icon/',
     output:'./dist/',
     name:'svg-dict',
-    type:'js',
+    type:'ts',
     format:'default'
 }
